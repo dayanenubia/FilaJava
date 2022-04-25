@@ -1,5 +1,8 @@
 package javaqueue;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 import javax.swing.JOptionPane;
 
@@ -10,10 +13,11 @@ public class FormFila extends javax.swing.JFrame {
     
     public FormFila() {
         initComponents();
+        carregaArquivo();
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -192,7 +196,28 @@ public class FormFila extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
+    private void carregaArquivo(){
+        String csvFile = "dados.csv";
+        String line = "";
+        String[] leitura = null;
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+            while ((line = br.readLine()) != null) {
+                Pessoa p = new Pessoa();
+                leitura = line.split(",");
+                System.out.println("Nome:"+leitura[0]+ " RG= " + leitura[1] + " , Idade=" + leitura[2] + "");
+                p.setNome(leitura[0]);
+                p.setRg(leitura[1]);
+                int idade = (Integer.parseInt(leitura[2]));
+                p.setIdade(idade);
+                addFila(p); // separar
+            }// fim percurso no arquivo
+            mostra();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
     void mostra(){
         listFilaNormal.setText("");
         if(!filaNormal.isEmpty()){
@@ -209,20 +234,14 @@ public class FormFila extends javax.swing.JFrame {
            }
         }
     }
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {                                       
         Pessoa p = new Pessoa();
         p.setNome(txtNome.getText());
         p.setRg(txtRG.getText());
         p.setIdade(Integer.parseInt(txtIdade.getText()));
-        if(p.getIdade() <= 60){
-            filaNormal.add(p);
-            mostra();
-        } else {
-            filaPreferencial.add(p);
-            mostra();
-        }
+        addFila(p);
          
-    }//GEN-LAST:event_btnAddActionPerformed
+    }                                      
     void removeNormal(){
         Pessoa p = new Pessoa();
         p = filaNormal.remove();
@@ -243,27 +262,24 @@ public class FormFila extends javax.swing.JFrame {
         } else {
             filaPreferencial.add(p);
         }
+        mostra();
     }
     
-    private void btnAtenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtenderActionPerformed
-        //if(!filaNormal.isEmpty()){
-            //Pessoa p = new Pessoa();
-            //p = filaNormal.remove();
-            //lblProx.setText("Prox: " + p.getNome());
-            //mostra();
-        //} else {
-            //.showMessageDialog(null, "Fila Vazia!");
-        //}
-        Pessoa p = new Pessoa();
-        if(cont != 3){
-            if(cont < 3){
-                addFila(p);
+    private void btnAtenderActionPerformed(java.awt.event.ActionEvent evt) {                                           
+       if(!filaPreferencial.isEmpty()){
+            if(cont != 3){ 
+                removePreferencial();
+                cont++;
+            } else {
+                removeNormal();
+                cont = 0;
             }
         } else {
-            addFila(p);
+            removeNormal();
             cont = 0;
         }
-    }//GEN-LAST:event_btnAtenderActionPerformed
+        //JOptionPane.showMessageDialog(null, "Fila Vazia");
+    }                                          
 
 
     public static void main(String args[]) {
@@ -298,7 +314,7 @@ public class FormFila extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAtender;
     private javax.swing.JLabel jLabel1;
@@ -313,5 +329,5 @@ public class FormFila extends javax.swing.JFrame {
     private javax.swing.JTextField txtIdade;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtRG;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 }
