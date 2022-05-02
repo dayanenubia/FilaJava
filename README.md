@@ -49,7 +49,7 @@ Abra o NetBeans, ou qualquer outro programa compativél, baixe os arquivos do [G
 
 <h4 aling="center">
    Tela inicial
- </h4>
+</h4>
  
  ![](https://github.com/dayanenubia/filaJava/blob/main/assets/inicio.PNG?raw=true)
  
@@ -57,13 +57,13 @@ Abra o NetBeans, ou qualquer outro programa compativél, baixe os arquivos do [G
    Incluindo  e atendendo paciente
 </h4>
 
-![](https://github.com/dayanenubia/pilhaJava/blob/main/assets/atendimento.PNG?raw=true)
+![](https://github.com/dayanenubia/filaJava/blob/main/assets/atendimento.PNG?raw=true)
 
 <h4 aling="center">
    Fila vazia!
 </h4>
 
-![](https://github.com/dayanenubia/pilhaJava/blob/main/assets/fim.PNG?raw=true)
+![](https://github.com/dayanenubia/filaJava/blob/main/assets/fim.PNG?raw=true)
 
 <h3 aling="right" <a name="autor"></a>
    Autor
