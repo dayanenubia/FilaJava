@@ -234,6 +234,7 @@ public class FormFila extends javax.swing.JFrame {
            }
         }
     }
+    
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {                                       
         Pessoa p = new Pessoa();
         p.setNome(txtNome.getText());
@@ -241,7 +242,8 @@ public class FormFila extends javax.swing.JFrame {
         p.setIdade(Integer.parseInt(txtIdade.getText()));
         addFila(p);
          
-    }                                      
+    }    
+    
     void removeNormal(){
         Pessoa p = new Pessoa();
         p = filaNormal.remove();
@@ -259,10 +261,18 @@ public class FormFila extends javax.swing.JFrame {
     void addFila(Pessoa p){
         if(p.getIdade() < 60){
             filaNormal.add(p);
+            limpaCampo();
         } else {
             filaPreferencial.add(p);
+            limpaCampo();
         }
         mostra();
+    }
+    
+    void limpaCampo(){
+        txtNome.setText("");
+        txtRG.setText("");
+        txtIdade.setText("");
     }
     
     private void btnAtenderActionPerformed(java.awt.event.ActionEvent evt) {                                           
@@ -274,11 +284,12 @@ public class FormFila extends javax.swing.JFrame {
                 removeNormal();
                 cont = 0;
             }
-        } else {
+        } else if (!filaNormal.isEmpty()){
             removeNormal();
             cont = 0;
+        } else {
+            JOptionPane.showMessageDialog(null, "Fila Vazia");
         }
-        //JOptionPane.showMessageDialog(null, "Fila Vazia");
     }                                          
 
 
