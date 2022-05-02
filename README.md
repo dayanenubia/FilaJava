@@ -50,3 +50,29 @@ Abra o NetBeans, ou qualquer outro programa compativél, baixe os arquivos do [G
 <h4 aling="center">
    Tela inicial
  </h4>
+ 
+ ![](https://github.com/dayanenubia/filaJava/blob/main/assets/inicio.PNG?raw=true)
+ 
+ <h4 aling="center">
+   Incluindo  e atendendo paciente
+</h4>
+
+![](https://github.com/dayanenubia/pilhaJava/blob/main/assets/atendimento.PNG?raw=true)
+
+<h4 aling="center">
+   Fila vazia!
+</h4>
+
+![](https://github.com/dayanenubia/pilhaJava/blob/main/assets/fim.PNG?raw=true)
+
+<h3 aling="right" <a name="autor"></a>
+   Autor
+</h3>
+
+Feito com ❤️</br> 
+por <a href="https://github.com/dayanenubia/dayanenubia.git" > Dayane Núbia </a> </br> 
+Entre em contato! 👋
+
+[![Linkedin Badge](https://img.shields.io/badge/-DayaneNubia-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/dayane-n%C3%BAbia-862a35234/)](https://www.linkedin.com/in/dayane-n%C3%BAbia-862a35234/) 
+[![Gmail Badge](https://img.shields.io/badge/-dayane.nubia67@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=dayane.nubia67@gmail.com)](dayane.nubia67@gmail.com)
+
